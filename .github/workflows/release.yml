@@ -1,0 +1,9 @@
+name: release
+on:
+  pull_request:
+  push: {branches: [main], tags: ["v*.*.*"]}
+jobs:
+  build:
+    permissions: {contents: read, packages: write}
+    uses: ArachneDev/app-pipeline/.github/workflows/build.yml@v1
+    with: {app-json: ci/app.json}

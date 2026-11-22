@@ -1,0 +1,62 @@
+# Hosting request for a new app. The owner reads it and creates the app's repo.
+name: New app
+description: Ask the owner to host a new app.
+title: "New app: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in every field. This repo is public, so this issue is public too.
+        **Never paste a secret value.** Name secrets only; you set their values yourself later with `set-secret`.
+  - type: input
+    id: app-name
+    attributes:
+      label: App name
+      description: Short and lowercase, letters, digits and hyphens. It becomes the repo name, such as `scrimbot`.
+      placeholder: scrimbot
+    validations:
+      required: true
+  - type: input
+    id: developer
+    attributes:
+      label: Developer's GitHub name
+      description: The account that gets write access to the new repo.
+      placeholder: octocat
+    validations:
+      required: true
+  - type: input
+    id: port
+    attributes:
+      label: Port
+      description: The port the app listens on, read from `PORT`. The contract default is 3000. Write `none` for an app with no route, such as a bot.
+      placeholder: "3000"
+    validations:
+      required: true
+  - type: textarea
+    id: volumes
+    attributes:
+      label: Volumes
+      description: Each path inside the container that must persist, one per line, with what it holds. Write `none` if nothing persists.
+      placeholder: /data - SQLite database and uploads
+    validations:
+      required: true
+  - type: textarea
+    id: variables
+    attributes:
+      label: Variables
+      description: |
+        One per line. Non-secret settings as `NAME=value`. Secrets as `NAME (secret)`, with no value.
+      placeholder: |
+        PUBLIC_URL=https://myapp.example.com
+        DISCORD_CLIENT_ID=your-discord-client-id
+        DISCORD_CLIENT_SECRET (secret)
+    validations:
+      required: true
+  - type: input
+    id: memory-peak
+    attributes:
+      label: Memory peak
+      description: The highest memory use you measured under normal load, such as from `podman stats`. The owner sets the limit from it.
+      placeholder: 180 MiB
+    validations:
+      required: true

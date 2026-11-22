@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials*
+secrets*
+!ci/app.json
+node_modules/
+data/
+*.sqlite
+*.db

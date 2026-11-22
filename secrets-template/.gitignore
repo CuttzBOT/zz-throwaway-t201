@@ -1,0 +1,8 @@
+# Allow only what belongs here; everything else stays untracked.
+*
+!*/
+!.gitignore
+!README.md
+!set-secret
+!*.age
+!keys/*.pub

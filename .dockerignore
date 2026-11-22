@@ -1,0 +1,16 @@
+.git
+.github
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials*
+secrets*
+node_modules
+data/
+*.sqlite
+*.db
+ci/
+.pre-commit-config.yaml
